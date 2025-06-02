@@ -1,6 +1,9 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "typeRoots": ["./types", "./node_modules/@types"]
