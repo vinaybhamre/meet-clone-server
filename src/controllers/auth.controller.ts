@@ -110,7 +110,7 @@ export const logout: RequestHandler = (req, res) => {
 export const getCurrentUser: RequestHandler = (req, res) => {
   const token = req.cookies.token;
 
-  if (!token) {
+  if (!token || typeof token !== "string") {
     res.status(401).json({ message: "Not authenticated" });
     return;
   }
@@ -124,7 +124,7 @@ export const getCurrentUser: RequestHandler = (req, res) => {
         name: decoded.name,
       },
     });
-  } catch (err) {
+  } catch {
     res.status(401).json({ message: "Invalid token" });
   }
 };
